@@ -1,0 +1,23 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.btn-create-poll{
+    position: fixed;
+    bottom: 3em;
+    right: 3em;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.isVisible{
+    position: absolute;
+    visibility: hidden;
+}
+
+a{
+    text-decoration: none !important;
+}
