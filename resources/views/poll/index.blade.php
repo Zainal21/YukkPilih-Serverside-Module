@@ -23,13 +23,11 @@
                     <label for="">Deadline</label>
                     <input type="date" name="deadline" id="deadline" class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="">Choice</label>
-                    <input type="text" name="choices[]" id="choice" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Choice</label>
-                    <input type="text" name="choices[]" id="choice" class="form-control">
+                <div class="form-input-choice" id="choice-form">
+                    <div class="form-group">
+                        <label for="">Choice</label>
+                        <input type="text" name="choices[]" id="input-choice" class="form-control">
+                    </div>
                 </div>
                 <button class="btn btn-primary" type="submit">Add Choice</button>
             </form>
@@ -61,7 +59,7 @@
                 </div>
                 <div class="card-body">
                     <div class="card-title">{{$item->description}}</div>
-                </div>
+                
                 @if(auth()->user()->role == 'user')
                     @foreach($item->choices as $choice)
                     <form
@@ -73,6 +71,12 @@
                     </form>
                     @endforeach
                 @endif
+                @if(auth()->user()->role === 'admin')
+                <div class="progress mb-5">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+                @endif
+                </div>
             </div>
             @empty
             <div class="card shadow mt-4">
