@@ -37,7 +37,6 @@ class AuthController extends Controller
        return view('auth.reset_password');
     }
 
-
     // public function handleresetPassword(Request $request)
     // {
     //     $request->validate([

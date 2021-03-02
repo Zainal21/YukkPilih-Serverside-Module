@@ -6,7 +6,9 @@
 @if(auth()->user()->role === 'admin')
 <button class="btn btn-primary btn-create-poll" id="btn-create-poll">+</button>
 <div class="card mt-5 isVisible" id="dialog_box">
-    <div class="card-header">Create a new Poll</div>
+    <div class="card-header">Create a new Poll 
+        <button class="btn btn-primary float-right" id="btn-cancel" type="button">Cancel</button>
+    </div>
     <div class="card-body">
         <div class="card-body">
             <form action="{{route('poll.store')}}" class="form-group" method="post">
@@ -28,8 +30,9 @@
                         <label for="">Choice</label>
                         <input type="text" name="choices[]" id="input-choice" class="form-control">
                     </div>
+                    <a href="" class="nav-link text-black" id="add-input-choice">Add Choice</a>
                 </div>
-                <button class="btn btn-primary" type="submit">Add Choice</button>
+                <button class="btn btn-primary" type="submit">Add Poll</button>
             </form>
         </div>
     </div>

@@ -26,5 +26,4 @@ Route::get('poll/{id}', 'PollController@show')->name('poll.show');
 Route::post('poll', 'PollController@store')->name('poll.store');
 Route::delete('poll/{id}', 'PollController@destroy')->name('poll.destroy');
 // 
-Route::resource('user', 'UserController');
 Route::post('poll/{poll_id}/vote/{choices_id}', 'VoteController@vote')->name('vote');
