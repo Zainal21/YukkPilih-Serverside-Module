@@ -76,7 +76,7 @@
                 @endif
                 @if(auth()->user()->role === 'admin')
                 <div class="progress mb-5">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                    <div class="progress" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 @endif
                 </div>

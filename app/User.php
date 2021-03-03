@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+    public function poll()
+    {
+        return $this->hasMany(Poll::class, 'created_by','id');
+    }
     /**
      * The attributes that are mass assignable.
      *

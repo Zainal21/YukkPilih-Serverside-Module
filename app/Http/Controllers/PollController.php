@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Poll;
 use App\Choice;
 use Auth;
+use App\Http\Resources\PollResource;
 class PollController extends Controller
 {
     /**
@@ -15,9 +16,9 @@ class PollController extends Controller
      */
     public function index()
     {
-    //    return 
-    // return ( Poll::with(['choices'])->get());
-        return view('poll.index', ['poll' => Poll::with(['choices'])->get()]);
+        return   PollResource::collection(Poll::with(['choices','user'])->get());
+        // return ( Poll::with(['choices','user'])->get());
+        // return view('poll.index', ['poll' => Poll::with(['choices'])->get()]);
     }
 
     /**

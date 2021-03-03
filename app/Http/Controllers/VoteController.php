@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Poll;
 use App\Choice;
 use App\Vote;
-use Carbon;
+// use Carbon\Carbon;
 
 class VoteController extends Controller
 {
@@ -35,9 +35,9 @@ class VoteController extends Controller
             return redirect()->back()->with('warning', 'You Already vote');
         }
         // check deadline
-        if(\Carbon::parse($poll->deadline)->isAftrer(now())){
-            return redirect()->back()->with('status', 'Voting deadline');
-        }
+        // if(\Carbon::parse($poll->deadline)->isAftrer(now())){
+        //     return redirect()->back()->with('status', 'Voting deadline');
+        // }
         // created vote
         // return $request;
        $data  =  vote::create([
