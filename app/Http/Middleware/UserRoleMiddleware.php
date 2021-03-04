@@ -15,7 +15,7 @@ class UserRoleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(!$request->auth()->user()-role === 'user'){
+        if(!auth()->user()-role === 'user'){
             return redirect()->route('login');
         }
         return $next($request);

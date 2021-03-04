@@ -10,6 +10,11 @@ use Auth;
 use App\Http\Resources\PollResource;
 class PollController extends Controller
 {
+    public function __contruct()
+    {
+        // call midleware for admin and users
+        $this->middleware(['admin'])->only(['create', 'destroy', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *

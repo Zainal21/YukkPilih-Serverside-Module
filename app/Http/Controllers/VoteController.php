@@ -10,6 +10,11 @@ use Carbon\Carbon;
 
 class VoteController extends Controller
 {
+
+    public function __contruct()
+    {
+        $this->middleware(['user']);
+    }
     /**
      * Display a listing of the resource.
      *

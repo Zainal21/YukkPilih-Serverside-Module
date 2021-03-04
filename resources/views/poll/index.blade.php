@@ -82,7 +82,7 @@
             @empty
             <div class="card shadow mt-4">
                 <div class="card-header">
-                    polling not foud
+                    polling not found
                 </div>
             </div>
             @endforelse
