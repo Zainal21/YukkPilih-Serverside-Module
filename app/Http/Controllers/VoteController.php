@@ -48,6 +48,4 @@ class VoteController extends Controller
         ]);
         return redirect()->back()->with('status' , 'Voting Successfully');
     }
-
- 
 }

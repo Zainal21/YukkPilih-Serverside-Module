@@ -63,7 +63,7 @@
                 <div class="card-body">
                     <div class="card-title">{{$item->description}}</div>
                 
-                @if(auth()->user()->role == 'user')
+                @if(auth()->user()->role == 'user' )
                     @foreach($item->choices as $choice)
                     <form
                      action="{{url('poll/'. $item->id .'/vote/'. $choice->id)}}" method="post" class="d-flex">
@@ -73,18 +73,16 @@
                         <button class="btn btn-primary mx-2 my-2">{{$choice->choices}}</button>
                     </form>
                     @endforeach
-                @endif
-                @if(auth()->user()->role === 'admin')
-                <div class="progress mb-5">
-                    <div class="progress" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                @endif
+                @endif               
+                    <div class="progress mb-5">
+                        <div class="progress" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
             </div>
             @empty
             <div class="card shadow mt-4">
                 <div class="card-header">
-                    no content
+                    polling not foud
                 </div>
             </div>
             @endforelse

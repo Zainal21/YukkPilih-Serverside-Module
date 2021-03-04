@@ -17,7 +17,7 @@ class ChoiceResource extends JsonResource
     {
         $data = [
             'choices_id' => $this->choices_id,
-            // 'choices' => $this->choices
+            'choices' => $this->choices
         ];
 
         $vote = DB::table('votes')->whereRaw('choices_id in (SELECT max(choices_id) FROM votes)')->get();

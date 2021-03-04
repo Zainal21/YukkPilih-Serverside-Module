@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Poll;
 use App\Choice;
+use App\Vote;
 use Auth;
 use App\Http\Resources\PollResource;
 class PollController extends Controller
@@ -17,6 +18,10 @@ class PollController extends Controller
     public function index()
     {
         // return  PollResource::collection(Poll::with(['choices','user'])->get());
+    //    return Vote::where([
+    //         'user_id' => auth()->user()->id,
+    //         'poll_id' => 1
+    //     ])->first();
         // return ( Poll::with(['choices','user'])->get());
         return view('poll.index', ['poll' => Poll::with(['choices'])->get()]);
     }
