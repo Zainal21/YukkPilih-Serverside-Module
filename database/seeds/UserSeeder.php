@@ -12,25 +12,34 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        \App\Division::create([
-            'name' => 'IT'
-        ]);
-        \App\Division::create([
-            'name' => 'HR'
-        ]);
-
         \App\user::create([
             'username' => 'user',
             'password' => bcrypt('user'),
             'role' => 'user',
-            'division_id' => 1
+            'division_id' => \App\Division::firstOrcreate(['name' => 'IT'])->id
+        ]);
+        
+        
+        \App\user::create([
+            'username' => 'user2',
+            'password' => bcrypt('user2'),
+            'role' => 'user',
+            'division_id' => \App\Division::firstOrcreate(['name' => 'IT'])->id
+        ]);
+        
+        
+        \App\user::create([
+            'username' => 'payment',
+            'password' => bcrypt('Payment'),
+            'role' => 'user',
+            'division_id' => \App\Division::firstOrcreate(['name' => 'Payment'])->id
         ]);
         
         \App\user::create([
             'username' => 'admin',
             'password' => bcrypt('admin'),
             'role' => 'admin',
-            'division_id' => 2
+            'division_id' => \App\Division::firstOrcreate(['name'=> 'HR'])->id
         ]);
         
         \App\Poll::create([

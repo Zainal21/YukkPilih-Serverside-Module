@@ -16,9 +16,9 @@ class PollController extends Controller
      */
     public function index()
     {
-        return   PollResource::collection(Poll::with(['choices','user'])->get());
+        // return  PollResource::collection(Poll::with(['choices','user'])->get());
         // return ( Poll::with(['choices','user'])->get());
-        // return view('poll.index', ['poll' => Poll::with(['choices'])->get()]);
+        return view('poll.index', ['poll' => Poll::with(['choices'])->get()]);
     }
 
     /**
