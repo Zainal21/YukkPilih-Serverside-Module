@@ -13,7 +13,7 @@ class PollController extends Controller
     public function __contruct()
     {
         // call midleware for admin and users
-        $this->middleware(['admin'])->only(['create', 'destroy', 'store']);
+        $this->middleware(['admin'])->only(['destroy', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -22,23 +22,11 @@ class PollController extends Controller
      */
     public function index()
     {
-        // return  PollResource::collection(Poll::with(['choices','user'])->get());
-    //    return Vote::where([
-    //         'user_id' => auth()->user()->id,
-    //         'poll_id' => 1
-    //     ])->first();
-        // return ( Poll::with(['choices','user'])->get());
-        return view('poll.index', ['poll' => Poll::with(['choices'])->get()]);
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('poll.create');
+        $data = Poll::with(['choices', 'user'])->orderBy('created_at', 'desc')->get();
+        $poll =  PollResource::collection($data);
+        return $poll;
+        return view('poll.index', ['poll' => $poll]);
     }
 
     /**
@@ -96,9 +84,6 @@ class PollController extends Controller
      */
     public function destroy($id)
     {
-        if(\Auth::user()->role !== 'admin'){
-            return redirect()->back()->with('status', 'Cannot deleted vote because your not admin');
-        }
         Poll::destroy($id);
         return redirect()->back()->with('status', 'Deleted Vote Successfully');
     }

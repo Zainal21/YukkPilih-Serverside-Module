@@ -25,16 +25,17 @@ class PollResource extends JsonResource
             'deadline' => $this->deadline,
             'result' => null,
             'choices' => $this->choices
-            // 'creator' => $this->;
         ];
 
         $vote = Vote::where('poll_id', $this->id)->get();
 
         $result = ChoiceResource::collection($vote);
 
+        // check if user admin
         if(auth()->user()->role == 'admin'){
             $data['result'] = $result;
         }else{
+            // check if user vote and deadline for this polling
             $isUserVote = Vote::where('poll_id', $this->id)->where('user_id', auth()->user()->id)->first();
             if($isUserVote || Carbon::now()->gte(Carbon::parse($this->deadline))){
                 $data['result'] = $result;

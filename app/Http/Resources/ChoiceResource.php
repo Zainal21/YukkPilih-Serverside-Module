@@ -15,12 +15,13 @@ class ChoiceResource extends JsonResource
      */
     public function toArray($request)
     {
+        // set data enpoint
         $data = [
             'choices_id' => $this->choices_id,
-            'choices' => $this->choices
+            'choices' => $this->name
         ];
-
-        $vote = DB::table('votes')->whereRaw('choices_id in (SELECT max(choices_id) FROM votes)')->get();
+        // search choice user and group by by polling
+        $vote = DB::table('votes')->whereRaw('choices_id in (SELECT max(choices_id) FROM votes group by (poll_id))')->get();
          
         $data['point'] = 1;
         return $data;

@@ -40,9 +40,9 @@ class VoteController extends Controller
             return redirect()->back()->with('warning', 'You Already vote');
         }
         // check deadline
-        if(Carbon::parse($poll->deadline)->isAfter(now())){
-            return redirect()->back()->with('status', 'Voting deadline');
-        }
+        // if(Carbon::now()->gte(Carbon::parse($poll->deadline))) {
+        //     return redirect()->back()->with('warning', 'Voting Deadline');
+        // }
         // created vote
         // return $request;
        $data  =  vote::create([

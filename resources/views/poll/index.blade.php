@@ -51,7 +51,7 @@
             <div class="card shadow mt-4">
                 <div class="card-header">
                    <h2 class="text-center">{{$item->title}}</h2>
-                   <p>Deadline : <strong>{{$item->deadline}}</strong> | Created By : <strong>{{$item->user->username}}</strong></p>
+                   <p>Deadline : <strong>{{$item->deadline}}</strong> | Created By : <strong>{{$item->creator}}</strong></p>
                    @if(auth()->user()->role == 'admin')
                     <form action="{{route('poll.destroy', $item->id)}}" method="post">
                         @csrf
@@ -62,7 +62,6 @@
                 </div>
                 <div class="card-body">
                     <div class="card-title">{{$item->description}}</div>
-                
                 @if(auth()->user()->role == 'user' )
                     @foreach($item->choices as $choice)
                     <form
@@ -73,10 +72,7 @@
                         <button class="btn btn-primary mx-2 my-2">{{$choice->choices}}</button>
                     </form>
                     @endforeach
-                @endif               
-                    <div class="progress mb-5">
-                        <div class="progress" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                @endif    
                 </div>
             </div>
             @empty
