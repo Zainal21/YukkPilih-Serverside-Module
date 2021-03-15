@@ -1,3 +1,1 @@
-1. Vote persentage
-2. create a new input field when admin add a polling
-3. reset password
+1. Check validate password if user still using password default redirect to reset passowrd page else redirecr in poll page 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDivisionTable extends Migration
+class AddResultToVotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateDivisionTable extends Migration
      */
     public function up()
     {
-        Schema::create('division', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('votes', function (Blueprint $table) {
+            $table->integer('point')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ class CreateDivisionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('division');
+        Schema::table('votes', function (Blueprint $table) {
+            //
+        });
     }
 }

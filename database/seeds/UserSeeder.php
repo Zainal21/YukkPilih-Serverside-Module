@@ -41,6 +41,12 @@ class UserSeeder extends Seeder
             'role' => 'admin',
             'division_id' => \App\Division::firstOrcreate(['name'=> 'HR'])->id
         ]);
+        \App\user::create([
+            'username' => 'it_1',
+            'password' => bcrypt('it_1'),
+            'role' => 'user',
+            'division_id' => \App\Division::firstOrcreate(['name'=> 'HR'])->id
+        ]);
         
         \App\Poll::create([
            'title' => 'Mau Makan apa hari ini ?',

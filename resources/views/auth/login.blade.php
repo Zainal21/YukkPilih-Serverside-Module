@@ -4,6 +4,9 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-8 ">
+            @if(session('danger'))
+            <div class="alert alert-danger">{{session('danger')}}</div>
+            @endif
             <div class="card shadow">
                 <div class="card-header">
                    <h2 class="text-center"> login <strong>Yukk Pilih</strong></h2>

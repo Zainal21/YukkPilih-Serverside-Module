@@ -13,15 +13,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Old Password</label>
-                            <input type="password" name="old_password" id="password" class="form-control @error('old_password') is-invalid @enderror">
+                            <input type="password" name="old_password" id="password" class="form-control @error('old_password') is-invalid @enderror" required>
                         </div>
                         <div class="form-group">
                             <label for="">New Password</label>
-                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
+                            <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" required>
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="password" name="password_confirmation" id="password" class="form-control @error('password') is-invalid @enderror">
+                            <input type="password" name="password_confirmation" id="password" class="form-control @error('password') is-invalid @enderror" required>
                             @error('password') 
                             <div class=" invalid-feedback"></div>
                             @enderror

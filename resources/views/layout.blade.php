@@ -12,7 +12,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="container">
-                <div class="navbar-brand">Yukk Pilih</div>
+                <div class="navbar-brand"><a href="{{url('/')}}" class="nav-link text-white">Yukk Pilih</a></div>
                 <div class="navbar-nav">
                     <ul class="nav-link text-white d-flex">
                         @auth
